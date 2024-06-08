@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Form</title>
+    <style>
+      body {
+        background-color: #f0f8f7; /* Medical green color */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #007f5f; /* Dark green color */
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #007f5f; /* Dark green color */
+      }
+      input[type="number"],
+      input[type="checkbox"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        background-color: #007f5f; /* Dark green color */
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #005f3f; /* Darker green color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Medical Details Form</h1>
+      <form action="/predict" method="post">
+        <label for="wbc">White Blood Cell Count (cells/µL):</label>
+        <input type="number" step="0.01" id="wbc" name="wbc" required />
+
+        <label for="glucose">Blood Glucose Random (mg/dL):</label>
+        <input type="number" step="0.01" id="glucose" name="glucose" required />
+
+        <label for="urea">Blood Urea (mg/dL):</label>
+        <input type="number" step="0.01" id="urea" name="urea" required />
+
+        <label for="creatinine">Serum Creatinine (mg/dL):</label>
+        <input
+          type="number"
+          step="0.01"
+          id="creatinine"
+          name="creatinine"
+          required
+        />
+
+        <label for="pcv">Packed Cell Volume (%):</label>
+        <input type="number" step="0.01" id="pcv" name="pcv" required />
+
+        <label for="albumin">Albumin (gm/dL):</label>
+        <input type="number" step="0.01" id="albumin" name="albumin" required />
+
+        <label for="hemoglobin">Hemoglobin (gm/dL):</label>
+        <input
+          type="number"
+          step="0.01"
+          id="hemoglobin"
+          name="hemoglobin"
+          required
+        />
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required />
+
+        <label for="sugar">Sugar:</label>
+        <input type="number" step="0.01" id="sugar" name="sugar" required />
+
+        <label for="hypertension"
+          >Hypertension (1 if present, 0 if absent):</label
+        >
+        <input
+          type="checkbox"
+          id="hypertension"
+          name="hypertension"
+          value="1"
+        />
+
+        <input type="submit" value="Predict" />
+      </form>
+      {% if prediction %}
+      <h2>Prediction Result: {{ prediction }}</h2>
+      {% endif %}
+    </div>
+  </body>
+</html>
