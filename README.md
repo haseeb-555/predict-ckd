@@ -53,7 +53,7 @@ This application is intended for educational and informational purposes only. It
 
 **Author:**
 
-[Mohammed Haseebuddindnaanhaseeb555@gmail.com]
+[Mohammed Haseebuddin / adnaanhaseeb555@gmail.com]
 
 ---
 This README provides a brief overview of the Chronic Kidney Disease Prediction project, its features, usage instructions, model details, and other relevant information. Feel free to customize it further based on your project's specific requirements and preferences.
