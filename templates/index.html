@@ -4,50 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medical Form</title>
-    <style>
-      body {
-        background-color: #f0f8f7; /* Medical green color */
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        max-width: 600px;
-        margin: 50px auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #007f5f; /* Dark green color */
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-        color: #007f5f; /* Dark green color */
-      }
-      input[type="number"],
-      input[type="checkbox"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-      input[type="submit"] {
-        background-color: #007f5f; /* Dark green color */
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      input[type="submit"]:hover {
-        background-color: #005f3f; /* Darker green color on hover */
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/index.js') }}"
+      defer
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -92,21 +56,20 @@
         <label for="sugar">Sugar:</label>
         <input type="number" step="0.01" id="sugar" name="sugar" required />
 
-        <label for="hypertension"
-          >Hypertension (1 if present, 0 if absent):</label
-        >
-        <input
-          type="checkbox"
-          id="hypertension"
-          name="hypertension"
-          value="1"
-        />
+        <div class="checkbox-label">
+          <input
+            type="checkbox"
+            id="hypertension"
+            name="hypertension"
+            value="1"
+          />
+          <label for="hypertension"
+            >Hypertension (1 if present, 0 if absent):</label
+          >
+        </div>
 
         <input type="submit" value="Predict" />
       </form>
-      {% if prediction %}
-      <h2>Prediction Result: {{ prediction }}</h2>
-      {% endif %}
     </div>
   </body>
 </html>

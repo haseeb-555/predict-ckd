@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/result.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/result.js') }}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      {% if prediction == 1 %}
+      <div class="congrats">
+        <div class="congrats-face">🎉</div>
+        <h2>Congratulations!</h2>
+        <p>
+          You do not have Chronic Kidney Disease. Keep up with a healthy
+          lifestyle!
+        </p>
+      </div>
+      {% else %}
+      <div class="sorry">
+        <div class="sorry-face">😔</div>
+        <h2>Sorry!</h2>
+        <p>
+          You have been diagnosed with Chronic Kidney Disease. Please consult a
+          doctor for further advice and treatment.
+        </p>
+      </div>
+      {% endif %}
+      <a href="/">Go Back</a>
+    </div>
+  </body>
+</html>
